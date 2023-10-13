@@ -2,7 +2,7 @@
     $servername = "localhost";
 	$username = "root";
 	$password = "mysql";
-	$dbname = "legal_scheduling";
+	$dbname = "eddy_graphics";
 	
 	
     ob_start();
@@ -27,7 +27,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Tables </title>
+    <title>Clients</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
@@ -57,88 +57,7 @@
                 </div>
                 <div class="header-content">
                     <div class="theme-switch-icon"></div>
-                    <div class="notification dropdown">
-                        <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="far fa-envelope"></i>
-                        </a>
-                        <ul class="dropdown-menu medium">
-                            <li class="menu-header">
-                                <a class="dropdown-item" href="#">Message</a>
-                            </li>
-                            <li class="menu-content ps-menu">
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar1.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content read">
-                                        <div class="subject">
-                                            John
-                                        </div>
-                                        <div class="body">
-                                            Please call me at 9pm
-                                        </div>
-                                        <div class="time">Just now</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar2.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                            Michele
-                                        </div>
-                                        <div class="body">
-                                            Please come to my party
-                                        </div>
-                                        <div class="time">3 hours ago</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar1.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content read">
-                                        <div class="subject">
-                                            Brad
-                                        </div>
-                                        <div class="body">
-                                            I have something to discuss, please call me soon
-                                        </div>
-                                        <div class="time">3 hours ago</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar2.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                            Anel
-                                        </div>
-                                        <div class="body">
-                                            Sorry i'm late
-                                        </div>
-                                        <div class="time">8 hours ago</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar2.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                            Mary
-                                        </div>
-                                        <div class="body">
-                                            Please answer my question last night
-                                        </div>
-                                        <div class="time">Last month</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    
                     <div class="notification dropdown">
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-bell"></i>
@@ -232,7 +151,7 @@
                 </a>
             </div> -->
             <div class="sidebar-header">
-                <div class="text">MJ</div>
+                <div class="text">eddy graphics</div>
                 <div class="close-sidebar action-toggle">
                     <i class="ti-close"></i>
                 </div>
@@ -254,26 +173,10 @@
                             <span>Tables</span>
                         </a>
                         <ul class="sub-menu expand">
-                            <li><a href="table-basic.php" class="link"><span>Appointment</span></a></li>
-                            <li class="active"><a href="table-datatables.php" class="link"><span>client</span></a></li>
+                            <li><a href="table-basic.php" class="link"><span>Notifacation</span></a></li>
+                            <li class="active"><a href="table-datatables.php" class="link"><span>Client</span></a></li>
                         </ul>
                     </li>
-                    <li class="menu-category">
-                        <span class="text-uppercase">Extra</span>
-                    </li>
-                    <li>
-                        <a href="charts.html" class="link">
-                            <i class="ti-bar-chart"></i>
-                            <span>Charts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="fullcalendar.php" class="link">
-                            <i class="ti-calendar"></i>
-                            <span>Calendar</span>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </nav>        
 <div class="main-content">
@@ -321,13 +224,13 @@
 $servername = "localhost";
 $username = "root";
 $password = "mysql";
-$dbname = "legal_scheduling";
+$dbname = "eddy_graphics";
 
 $conn =mysqli_connect($servername,$username,$password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM client";
+$sql = "SELECT * FROM user";
 $result = $conn->query($sql);
  echo "<table class='table display nowrap' id='example'>";
 echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>Address</th>";

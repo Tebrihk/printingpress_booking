@@ -31,7 +31,61 @@
       <link rel="stylesheet" href="css/home_css/template-style.css">       
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>      
       <script type="text/javascript" src="js/home_js/jquery-1.8.3.min.js"></script>
-      <script type="text/javascript" src="js/home_js/jquery-ui.min.js"></script>               
+      <script type="text/javascript" src="js/home_js/jquery-ui.min.js"></script> 
+	  <style type="text/css">
+#notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+#notification:hover {
+  background: red;
+}
+
+#notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  }
+   .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Style for the menu items */
+        .dropdown-content li {
+            padding: 2px 6px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content li:hover {
+            background-color: #f1f1f1;
+        }
+}
+
+</style>              
    </head>
    <body class="size-1140">        
       <header class="margin-bottom">
@@ -39,24 +93,30 @@
             <nav>
                <div class="top-nav">
                   <p class="nav-text"></p>
-                  <a class="logo" href="home.html">Eddy<span>Graphics</span>                  </a>                                    
+                  <a class="logo" href="home.php">Eddy<span>Graphics</span>                  </a>                                    
                   <ul class="top-ul right">
                      <li>            
                         <a href="home.php">HOME</a>            
                      </li>
                      <li>            
-                        <a href="">ABOUT US</a>            
+                        <a href="#">ABOUT US</a>            
                      </li>
                      <li>            
                         <a href="template.php">TEMPLATE</a>            
                      </li>
                      <li>            
-                        <a href="contact-form/index.html">CONTACT</a>            
+                        <a href="contact-form/index.html">CONTACT</a>  
+						<div class="dropdown">
+							<span><?php echo $row['name']; ?></span>
+							<ul class="dropdown-content">
+								<li><a href="notification.php" id="notification">Notification
+								 <span class="badge">3</span></a></li>
+								<li><a href="logout.php">Logout</a></li>
+							</ul>
+						</div>          
                      </li>
-                     <div class="social right">	
-					 WELCOME : <BR>  <br>         
-                       <h1 style="font-size:30px; font-family:Verdana, Arial, Helvetica, sans-serif;"> <?php echo $row['name']; ?></h1>
-                     </div>
+					    
+                    
                   </ul>
                </div>
             </nav>

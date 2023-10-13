@@ -2,7 +2,7 @@
     $servername = "localhost";
 	$username = "root";
 	$password = "mysql";
-	$dbname = "legal_scheduling";
+	$dbname = "eddy_graphics";
 	
 	
     ob_start();
@@ -60,81 +60,7 @@
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-envelope"></i>
                         </a>
-                        <ul class="dropdown-menu medium">
-                            <li class="menu-header">
-                                <a class="dropdown-item" href="#">Message</a>
-                            </li>
-                            <li class="menu-content ps-menu">
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar1.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                           
-                                        </div>
-                                        <div class="body">
-                                        </div>
-                                        <div class="time">Just now</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar2.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                           
-                                        </div>
-                                        <div class="body">
-                                        </div>
-                                        <div class="time">3 hours ago</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar1.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content read">
-                                        <div class="subject">
-                                           
-                                        </div>
-                                        <div class="body">
-                                           
-                                        </div>
-                                        <div class="time">3 hours ago</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar2.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                           
-                                        </div>
-                                        <div class="body">
-                                           
-                                        </div>
-                                        <div class="time">8 hours ago</div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="message-image">
-                                        <img src="../assets/images/avatar2.png" class="rounded-circle w-100" alt="user1">
-                                    </div>
-                                    <div class="message-content">
-                                        <div class="subject">
-                                           
-                                        </div>
-                                        <div class="body">
-                                           
-                                        </div>
-                                        <div class="time">Last month</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                       
                     </div>
                     <div class="notification dropdown">
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -229,7 +155,7 @@
                 </a>
             </div> -->
             <div class="sidebar-header">
-                <div class="text">MJ</div>
+                <div class="text">EDDY GRAPHICS</div>
                 <div class="close-sidebar action-toggle">
                     <i class="ti-close"></i>
                 </div>
@@ -252,24 +178,9 @@
                             <span>Tables</span>
                         </a>
                         <ul class="sub-menu ">
-                            <li><a href="table-basic.php" class="link"><span>Appointments</span></a></li>
+                            <li><a href="table-basic.php" class="link"><span>Notification</span></a></li>
                             <li><a href="table-datatables.html" class="link"><span>Clients</span></a></li>
                         </ul>
-                    </li>
-                    <li class="menu-category">
-                        <span class="text-uppercase">Extra</span>
-                    </li>
-                    <li>
-                        <a href="charts.html" class="link">
-                            <i class="ti-bar-chart"></i>
-                            <span>Charts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="fullcalendar.php" class="link">
-                            <i class="ti-calendar"></i>
-                            <span>Calendar</span>
-                        </a>
                     </li>
                 </ul>
             </div>
