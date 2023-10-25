@@ -19,7 +19,41 @@
 		$sql=mysqli_query($conn,"SELECT * FROM admin WHERE name='$user'");
 			$row=mysqli_fetch_array($sql);
 
-?>                                        
+?>   
+<?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "mysql";
+	$dbname = "eddy_graphics";
+
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL query to count entries
+$sql = "SELECT COUNT(*) AS entry_count FROM user"; // Replace your_table_name
+
+// Execute the query
+$result1 = $conn->query($sql);
+
+if ($result1->num_rows > 0) {
+    // Fetch the result
+    $row1 = $result1->fetch_assoc();
+
+    // Access the count
+    $entryCount = $row1['entry_count'];
+} else {
+    echo "No entries found.";
+}
+
+// Close the connection
+$conn->close();
+
+?>                                      
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,8 +99,7 @@
                     <div class="notification dropdown">
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-bell"></i>
-                            <span class="badge">12</span>
-                        </a>
+                            <span class="badge">12</span>                        </a>
                         <ul class="dropdown-menu medium">
                             <li class="menu-header">
                                 <a class="dropdown-item" href="#">Notification</a>
@@ -107,11 +140,42 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                  </div>
                     <div class="dropdown dropdown-menu-end">
                         <a href="#" class="user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="label">
-                                <span><?php echo $row['name']; ?></span>
+                                <span><?php
+							$servername = "localhost";
+							$username = "root";
+							$password = "mysql";
+							$dbname = "eddy_graphics";
+							
+							$conn = mysqli_connect($servername, $username, $password, $dbname);
+							
+							if ($conn->connect_error) {
+								echo "Connection failed: " . $conn->connect_error;
+								header("refresh:1;url=login.php");
+								exit;
+							}
+							
+							if (!isset($_SESSION['user'])) {
+								echo "User not logged in";
+								header("refresh:1;url=login.php");
+								exit;
+							}
+							
+							$user = mysqli_real_escape_string($conn, $_SESSION['user']);
+							$sql = mysqli_query($conn, "SELECT * FROM admin WHERE name='$user'");
+							$row = mysqli_fetch_array($sql);
+							
+							if ($row) {
+								echo $row['name'];
+							} else {
+								echo "User not logged in";
+							}
+							
+							mysqli_close($conn);
+							?></span>
                                 <div></div>
                             </div>
                             <img class="img-user" src="../assets/images/avatar1.png" alt="user"srcset="">
@@ -208,9 +272,9 @@
                     </div>
                     <div class="card-body">
                         <div class="progress-wrapper">
-                            <h4>Progress 25%</h4>
+                            <h4>users <?php echo $entryCount; ?></h4>
                             <div class="progress progress-bar-small">
-                                <div class="progress-bar progress-bar-small" style="width: 25%" role="progressbar"
+                                <div class="progress-bar progress-bar-small" style="width: <?php echo $entryCount; ?>%" role="progressbar"
                                     aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>

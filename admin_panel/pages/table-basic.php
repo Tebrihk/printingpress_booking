@@ -178,7 +178,7 @@
                             <span>Tables</span>
                         </a>
                         <ul class="sub-menu expand">
-                            <li class="active"><a href="table-basic.php" class="link"><span>Notication</span></a></li>
+                            <li class="active"><a href="table-basic.php" class="link"><span>Notification</span></a></li>
                             <li><a href="table-datatables.php" class="link"><span>Clients</span></a></li>
                         </ul>
                     </li>
@@ -224,14 +224,14 @@
             <div class="col-md-12">
 			 <div class="card">
                     <div class="card-header">
-                        <h4>APPOINTMENTS</h4>
+                        <h4>NOTIFICATION</h4>
                     </div>
                 <div class="card-body">
                    <?php
 $servername = "localhost";
 $username = "root";
 $password = "mysql";
-$dbname = "legal_scheduling";
+$dbname = "eddy_graphics";
 
 $conn =mysqli_connect($servername,$username,$password,$dbname);
 if ($conn->connect_error) {

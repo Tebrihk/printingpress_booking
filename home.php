@@ -10,8 +10,18 @@
 	
 	// if session is not set this will redirect to login page
 	if( !isset($_SESSION['user']) ) {
-		header("refresh:1;url=login.php");
+		header("Location:login.php");
 		exit;
+	}
+	$timeout = 300;
+
+// Check for the user's last activity time
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
+    // User has been inactive for too long, destroy the session and log them out
+    session_unset(); // Unset all session variables
+    session_destroy(); // Destroy the session
+    header("Location:login.php"); // Redirect to the login page
+    exit;
 	}
 		$conn =mysqli_connect($servername,$username,$password,$dbname) or die(mysql_error());
 		
@@ -107,10 +117,44 @@
                      <li>            
                         <a href="contact-form/index.html">CONTACT</a>  
 						<div class="dropdown">
-							<span><?php echo $row['name']; ?></span>
+							<span>
+							<?php
+							$servername = "localhost";
+							$username = "root";
+							$password = "mysql";
+							$dbname = "eddy_graphics";
+							
+							$conn = mysqli_connect($servername, $username, $password, $dbname);
+							
+							if ($conn->connect_error) {
+								echo "Connection failed: " . $conn->connect_error;
+								header("refresh:1;url=login.php");
+								exit;
+							}
+							
+							if (!isset($_SESSION['user'])) {
+								echo "User not logged in";
+								header("refresh:1;url=login.php");
+								exit;
+							}
+							
+							$user = mysqli_real_escape_string($conn, $_SESSION['user']);
+							$sql = mysqli_query($conn, "SELECT * FROM user WHERE name='$user'");
+							$row = mysqli_fetch_array($sql);
+							if ($row) {
+								echo $row['name'];
+							} else {
+								echo "User not logged in";
+								header("refresh:1;url=login.php");
+							}
+							
+							mysqli_close($conn);
+							?>
+							</span>
 							<ul class="dropdown-content">
-								<li><a href="notification.php" id="notification">Notification
-								 <span class="badge">3</span></a></li>
+							<li><a href="profile.php">Profile</a></li>
+								<li><a href="notification.php">Notification
+								 </a></li>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>          

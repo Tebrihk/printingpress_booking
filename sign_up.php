@@ -62,8 +62,7 @@ if ( isset($_POST['submit']) ) {
 		$sql =mysqli_query($conn, "insert into user (name,email,address,password) values ('$name','$email','$address','$pass')");
         if ($conn->query($sql) === true)
            {
-                $errTyp = "success";
-				$errMSG = "Successfully registered";
+				$sucMSG = "Successfully registered";
 				
 				unset($name);
 				unset($email);
@@ -77,6 +76,34 @@ if ( isset($_POST['submit']) ) {
 						header("Location: login.php");
 							}
 					}
+}
+?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "mysql";
+$dbname = "eddy_graphics";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if (isset($_POST['submit'])) {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $address = trim($_POST['address']);
+    $phone_number = 'empty';
+    $state = 'empty';
+    $country = 'empty';
+    $postal_code = 'empty';
+    $picture = 'empty';
+
+    $stmt = $conn->prepare("INSERT INTO user_profile (name, email, address, phone_number, state, country, postal_code, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $name, $email, $address, $phone_number, $state, $country, $postal_code, $picture);
+
+    if ($stmt->execute()) {
+        header("refresh:1;url=login.php");
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
 }
 ?>
 
@@ -102,6 +129,23 @@ if ( isset($_POST['submit']) ) {
 					<?php
 				}
 				?>
+				<?php
+			if ( isset($sucMSG) ) {
+				
+				?>
+				<div class="form-group" style="position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-weight: 700;
+  color:#FFFFFF;
+  background-color:#00FFFF;">
+				<span class="glyphicon glyphicon-info-sign"></span> <?php echo $sucMSG; ?>
+            	</div>
+                <?php
+			}
+			?>
       <div class="input-box">
         <input type="text" name="name" placeholder="Enter your name" required>
       </div>
