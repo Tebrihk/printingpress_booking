@@ -103,7 +103,8 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) >
             <nav>
                <div class="top-nav">
                   <p class="nav-text"></p>
-                  <a class="logo" href="home.php">Eddy<span>Graphics</span>                  </a>                                    
+				  
+                  <a class="logo" href="home.php"> <img src="img/IMG-20231025-WA0013.jpg" style="height:70px; width:70px;"></a>                                    
                   <ul class="top-ul right">
                      <li>            
                         <a href="home.php">HOME</a>            

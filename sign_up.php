@@ -73,7 +73,7 @@ if ( isset($_POST['submit']) ) {
 					}else{
 					$errTyp = "Failed";
 				$errMSG = "Failed to registered";
-						header("Location: login.php");
+						header("Location:sign_up.php");
 							}
 					}
 }
@@ -166,7 +166,7 @@ if (isset($_POST['submit'])) {
       </div>
      <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
       <div class="input-box button">
-        <input type="Submit" value="Register Now" name="submit">
+        <input type="Submit" value="SIGN UP" name="submit">
       </div>
       <div class="text">
         <h3>Already have an account? <a href="login.php">Login now</a></h3>
